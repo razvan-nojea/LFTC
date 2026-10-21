@@ -1,1 +1,4 @@
-DOC
+https://github.com/razvan-nojea/LFTC/
+I developed the lexical analyzer in Python using the re module, defining regular expressions with named capture groups to automatically identify and categorize tokens like reserved words, identifiers, and constants directly from the source code.
+To manage the Symbol Table (ST), I implemented a Binary Search Tree (BST) from scratch, where all identifiers and constants are stored and compared purely as strings to ensure consistent lexicographical sorting.
+The core ST operation is a recursive insert method that checks for duplicates and returns a unique node index, which the scanner then pairs with the token type to generate the Program Internal Form (PIF), assigning a default -1 index to reserved keywords.
