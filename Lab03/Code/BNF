@@ -1,0 +1,30 @@
+<program> ::= <comanda> <coada_de_program>
+<coada_de_program> ::= <comanda> <coada_de_program> | epsilon
+<comanda> ::= <daca_o_comanda> | <pentru_o_comanda> | <operatiune_de_intrare> | <trimite_ordin>
+<operatiune_de_intrare> ::= <gasitor> "=" <expresiune>
+<pentru_o_comanda> ::= "pentru fiecare" <gasitor> "raportat la" <expresiune> "elaboreaza:" <mai_multe_comenzi> "atata"
+<gasitor> ::= <litera_de_lege> <coada_de_gasitor>
+<coada_de_gasitor> ::= <litera_sau_cifra> <coada_de_gasitor> | epsilon
+<litera_sau_cifra> ::= <litera_de_lege> | <cifra_all_inclusive>
+<trimite_ordin> ::= "trimite ordin de executie" "(" <expresiune> "," <expresiune> "," <expresiune> ")"
+<daca_o_comanda> ::= "daca" <expresiune> "musai" <mai_multe_comenzi> "atata"
+<mai_multe_comenzi> ::= <comanda> <si_mai_multe_comenzi>
+<si_mai_multe_comenzi> ::= <comanda> <si_mai_multe_comenzi> | epsilon
+<expresiune> ::= <expr_boolean> | <expr_aritmata> | <apel_de_functiune> | <cel_snur> | <gasitor> | <numar> | <shopping_spree>
+<expr_boolean> ::= <expresiune> <operator_bool> <expresiune> | "Da" | "Ba"
+<operator_bool> ::= "si" | "sau" | "nu-i" | "==" | "!=" | "<" | ">" | "<=" | ">="
+<expr_aritmata> ::= <expresiune> <operator_aritm> <expresiune>
+<operator_aritm> ::= "+" | "-" | "*" | "/" | "%"
+<apel_de_functiune> ::= "citesteSenzor" "(" <expresiune> ")"
+<lista_de_cumparaturi> ::= <expresiune> <mai_multe_cumparaturi>
+<mai_multe_cumparaturi> ::= "," <expresiune> <mai_multe_cumparaturi> | epsilon
+<cel_snur> ::= '"' <snur_de_caractere> '"'
+<snur_de_caractere> ::= <snurulet_de_un_caracter> <snur_de_caractere> | epsilon
+<snurulet_de_un_caracter> ::= <litera_de_lege> | <cifra_all_inclusive>
+<litera_de_lege> ::= "a" | ... | "z" | "A" | ... | "Z"
+<cifra_da_nu_zero> ::= "1" | ... | "9"
+<zero> ::= "0"
+<cifra_all_inclusive> ::= <zero> | <cifra_da_nu_zero>
+<numar> ::= <zero> | <cifra_da_nu_zero> <coada_de_numar>
+<coada_de_numar> ::= <cifra_all_inclusive> <coada_de_numar> | epsilon
+<shopping_spree> ::= "[" <lista_de_cumparaturi> "]"
